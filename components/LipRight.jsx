@@ -2,14 +2,13 @@ import React, { useState, useRef } from "react";
 import { useStore } from "../store/useDotPositions";
 import useDotPositions from "../store/useDotPositions";
 
-
 const LipRight = () => {
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
 
   const circleRef = useRef(null);
 
-  const { leftDotPosition, rightDotPosition, setDotPositions } = useDotPositions();
-
+  const { leftDotPosition, rightDotPosition, setDotPositions } =
+    useDotPositions();
 
   const handleMouseDown = (event) => {
     event.preventDefault();
@@ -27,7 +26,13 @@ const LipRight = () => {
     const angleInRadians = Math.atan2(newY, newX);
     const angleInDegrees = angleInRadians * (180 / Math.PI);
 
-    console.log(newX, newY);
+    const pageX = circleRect.left + newX + dotRadius;
+    const pageY = circleRect.top + newY + dotRadius;
+    
+    setDotPositions({
+      leftDotPosition: { x: 0, y: 0 },
+      rightDotPosition: { x: pageX.toFixed(2), y: pageY.toFixed(2) },
+    });
 
     if (distanceFromCenter > maxRadius) {
       const angle = Math.atan2(newY, newX);
@@ -38,10 +43,8 @@ const LipRight = () => {
       newX = Math.cos(dotAngle) * maxRadius;
       newY = Math.sin(dotAngle) * maxRadius;
     }
-    setDotPositions({
-      leftDotPosition,
-      rightDotPosition: { x: newX, y: newY },
-    });
+
+
     setDotPosition({ x: newX, y: newY });
   };
 

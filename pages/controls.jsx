@@ -11,9 +11,20 @@ import LipRight from "../components/LipRight";
 import EyeLids from "@/components/EyeLids";
 
 import useDotPositions from "../store/useDotPositions";
+import LipLeft from "../components/LipLeft";
 
 function Controls() {
-  const { leftDotPosition, rightDotPosition } = useDotPositions();
+  const { leftDotPosition, rightDotPosition, leftLipAngle } = useDotPositions();
+
+  const startPointRef = useRef(null);
+  const endPointRef = useRef(null);
+
+  console.log(
+    rightDotPosition.x,
+    rightDotPosition.y,
+    leftDotPosition.x,
+    leftDotPosition.y
+  );
 
   return (
     <mainn>
@@ -49,8 +60,6 @@ function Controls() {
                     </EyeLids> */}
                     <EyeLeft />
                     <EyeRight />
-
-
                   </div>
                 </div>
                 <div className=" absolute mt-[390px] pl-[12.5px]">
@@ -58,9 +67,26 @@ function Controls() {
                 </div>
               </div>
 
-              <div className="-mt-[123px] flex space-x-[178px] ml-[90px] z-30 absolute">
-                <LipRight />
-                <LipRight />
+              <div className="-mt-[123px] relative flex space-x-[178px] ml-[90px] z-30 ">
+                <LipRight endPointRef={endPointRef} />
+                <LipLeft startPointRef={startPointRef} />
+
+                <svg
+                  width="434"
+                  height="148"
+                  viewBox="0 0 434 148"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    x1={rightDotPosition.x}
+                    y1={rightDotPosition.y}
+                    x2={leftDotPosition.x}
+                    y2={leftDotPosition.y}
+                    stroke="red"
+                    strokeWidth="10"
+                  />
+                </svg>
               </div>
             </div>
           </div>

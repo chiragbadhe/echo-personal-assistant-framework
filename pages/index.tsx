@@ -7,7 +7,7 @@ import EyeLids from "@/components/EyeLids";
 import Jaw from "@/components/Jaw";
 import Tilt from "@/components/Tilt";
 import Twist from "@/components/Twist";
-import LipRight from "@/components/LipRight";
+import Lip from "@/components/Lip";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +22,7 @@ export default function Home() {
       </Head>
       <main>
         <EyeLids>{/* <EyeRight/> */}</EyeLids>
+        <Lip/>
       </main>
     </>
   );

@@ -4,12 +4,6 @@ const EyeLids = (props) => {
   const [topSquarePosition, setTopSquarePosition] = useState(0);
   const [bottomSquarePosition, setBottomSquarePosition] = useState(140);
 
-  const handleMouseDown = useCallback((event) => {
-    event.preventDefault();
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-  }, []);
-
   const handleMouseMove = useCallback((event) => {
     const newPosition = event.clientY;
     if (newPosition >= 296 || newPosition <= 280) {
@@ -22,6 +16,15 @@ const EyeLids = (props) => {
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
   }, [handleMouseMove]);
+
+  const handleMouseDown = useCallback(
+    (event) => {
+      event.preventDefault();
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+    },
+    [handleMouseMove, handleMouseUp]
+  );
 
   const centerY = 70;
   const topHeight = topSquarePosition + 20;

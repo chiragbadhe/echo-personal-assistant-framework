@@ -1,16 +1,10 @@
 import React, { useState, useRef } from "react";
-import { Board } from "firmata-io";
 
 const Jaw = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef(null);
   const squareRef = useRef(null);
-
-//   const board = new Board("/dev/cu.usbserial-11210"); // Replace with the appropriate serial port for your Arduino Nano
-//   board.on("ready", () => {
-//     // Code to control servo goes here
-//   });
 
   const handleMouseDown = (event) => {
     setIsDragging(true);
@@ -30,7 +24,6 @@ const Jaw = () => {
       setPosition((prev) => ({ ...prev, y: newYClamped }));
 
       const angle = Math.floor((newYClamped / maxY) * 180);
-    //   board.servoWrite(9, angle);
     }
   };
 
