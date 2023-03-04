@@ -15,10 +15,6 @@ import LipLeft from "../components/LipLeft";
 
 function Controls() {
   const { leftDotPosition, rightDotPosition, leftLipAngle } = useDotPositions();
-
-  const startPointRef = useRef(null);
-  const endPointRef = useRef(null);
-
   console.log(
     rightDotPosition.x,
     rightDotPosition.y,
@@ -68,10 +64,10 @@ function Controls() {
               </div>
 
               <div className="-mt-[123px] relative flex space-x-[178px] ml-[90px] z-30 ">
-                <LipRight endPointRef={endPointRef} />
-                <LipLeft startPointRef={startPointRef} />
+                <LipRight />
+                <LipLeft />
 
-                <svg
+                {/* <svg
                   width="434"
                   height="148"
                   viewBox="0 0 434 148"
@@ -86,7 +82,7 @@ function Controls() {
                     stroke="red"
                     strokeWidth="10"
                   />
-                </svg>
+                </svg> */}
               </div>
             </div>
           </div>

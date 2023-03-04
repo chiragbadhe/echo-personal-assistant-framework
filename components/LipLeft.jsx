@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import useDotPositions from "../store/useDotPositions";
 
-const LipLeft = ({ startPointRef }) => {
+const LipLeft = () => {
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
   const circleRef = useRef(null);
 
@@ -71,7 +71,6 @@ const LipLeft = ({ startPointRef }) => {
       >
         <div
           className="dot"
-          ref={startPointRef}
           style={{
             width: `${dotRadius * 2}px`,
             height: `${dotRadius * 2}px`,
