@@ -1,15 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import EyeRight from "@/components/EyeRight";
-import EyeBrow from "@/components/EyeBrowLeft";
-import EyeLids from "@/components/EyeLids";
-import Jaw from "@/components/Jaw";
-import Tilt from "@/components/Tilt";
-import Twist from "@/components/Twist";
-
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   setTimeout(function () {
     window.location.href = "/controls";
@@ -24,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <EyeLids>{/* <EyeRight/> */}</EyeLids>
+        <h1>Please go to <a href="/controls">/controls</a> page</h1>
       </main>
     </>
   );
