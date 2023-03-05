@@ -1,39 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Echo Personal Assistant Framework
+
+Echo Personal Assistant Framework is a web-based framework used to control an Arduino-based robot. This robot is a personal assistant and can perform tasks like moving its eyes, eyelids, lips, eyebrows, neck tilt, and twist. The framework allows users to control these different parts of the robot with ease.
 
 ## Getting Started
 
-First, run the development server:
+To get started with the Echo Personal Assistant Framework, you'll need to have an Arduino-based robot set up with the required hardware components. You'll also need to have the Arduino IDE installed on your computer.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Once you have the hardware set up, you can clone this repository to your local machine and upload the code to your Arduino board using the Arduino IDE. You'll also need to set up a web server to run the framework.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Once you have the framework set up, you can access it through a web browser. The framework provides a user interface where you can control the different parts of the robot. You can move the eyes, eyelids, lips, eyebrows, neck tilt, and twist using the interface.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The framework also allows you to save different configurations for the robot. This can be useful if you want the robot to perform a specific task or move in a certain way.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Technology
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The Echo Personal Assistant Framework is built using the following technologies:
 
-## Learn More
+- HTML, CSS, and JavaScript for the frontend
+- Node.js and Express.js for the backend
+- Socket.IO for real-time communication between the frontend and backend
+- Johnny-Five for communicating with the Arduino board
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you're interested in contributing to the Echo Personal Assistant Framework, you can do so by submitting bug reports, feature requests, or pull requests on the project's GitHub repository.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# Echo---Personal-Assistant
+Echo Personal Assistant Framework is licensed under the MIT License.
