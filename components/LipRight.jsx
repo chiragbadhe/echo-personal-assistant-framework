@@ -3,7 +3,7 @@ import { useStore } from "../store/useDotPositions";
 import useDotPositions from "../store/useDotPositions";
 
 const LipRight = () => {
-  const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
+  const [dotPosition, setDotPosition] = useState({ x: 40, y: 0 });
 
   const circleRef = useRef(null);
 
@@ -28,9 +28,8 @@ const LipRight = () => {
 
     const pageX = circleRect.left + newX + dotRadius;
     const pageY = circleRect.top + newY + dotRadius;
-    
+
     setDotPositions({
-      leftDotPosition: { x: 0, y: 0 },
       rightDotPosition: { x: pageX.toFixed(2), y: pageY.toFixed(2) },
     });
 
@@ -43,7 +42,6 @@ const LipRight = () => {
       newX = Math.cos(dotAngle) * maxRadius;
       newY = Math.sin(dotAngle) * maxRadius;
     }
-
 
     setDotPosition({ x: newX, y: newY });
   };

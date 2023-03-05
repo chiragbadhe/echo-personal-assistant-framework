@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import useDotPositions from "../store/useDotPositions";
 
 const LipLeft = () => {
-  const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
+  const [dotPosition, setDotPosition] = useState({ x: 40, y: 0 });
   const circleRef = useRef(null);
 
   const {
@@ -33,7 +33,6 @@ const LipLeft = () => {
 
     setDotPositions({
       leftDotPosition: { x: pageX.toFixed(2), y: pageY.toFixed(2) },
-      rightDotPosition: { x: 0, y: 0 },
     });
 
     if (distanceFromCenter > maxRadius) {
