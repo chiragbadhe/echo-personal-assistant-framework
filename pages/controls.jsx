@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useState } from "react";
-import useDotPositions from "../store/useDotPositions";
+import storedValuesZustand from "../store/storedvalues";
 import {
   EyeLeft,
   EyeRight,
@@ -9,29 +9,29 @@ import {
   EyeBrowLeft,
   Jaw,
   LipRight,
-  EyeLids,
   LipLeft,
-  Tilt,
-  Twist,
-  Slider,
 } from "../components";
 
 function Controls() {
-  const { leftDotPosition, rightDotPosition, leftLipAngle, rightLipAngle, setLeftLip, setLeftLipAngle } =
-    useDotPositions();
+  const { leftDotPosition, rightDotPosition, jawValue, setJawValue } =
+    storedValuesZustand();
 
-  console.log(leftLipAngle, rightLipAngle);
+  useEffect(() => {
+    const slider = document.getElementById("jaw-slider");
+    if (slider) {
+      slider.value = jawValue;
+    }
+  }, [jawValue]);
 
-  const distance = Math.sqrt(
-    (leftDotPosition.x - rightDotPosition.x) ** 2 +
-      (leftDotPosition.y - rightDotPosition.y) ** 2
-  );
-
-  const handleChange = (event) => {
-    setLeftLipAngle({ leftLipAngle: event.target.value });
+  const jawChange = (event) => {
+    setJawValue(event.target.value);
   };
 
+  const lipChange = (event) => {
+    setJawValue(event.target.value);
+  };
 
+  console.log(jawValue);
 
   return (
     <main>
@@ -70,11 +70,24 @@ function Controls() {
               <div className="-mt-[123px] relative flex space-x-[178px] ml-[90px] z-30 ">
                 <LipRight />
                 <LipLeft />
-
-               
+                <div className="absolute">
+                  <input
+                  id="jaw-slider"
+                    type="range"
+                    min="0"
+                    max="70"
+                    value={jawValue.jawValue}
+                    onChange={jawChange}
+                    style={{ width: "100%" }}
+                  />
+                  <p>Value: {jawValue.jawValue}</p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-1/2">
+
         </div>
       </div>
     </main>

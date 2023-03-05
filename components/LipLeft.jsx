@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import useDotPositions from "../store/useDotPositions";
+import useDotPositions from "../store/storedvalues";
 
 const LipLeft = () => {
   const {
@@ -9,7 +9,7 @@ const LipLeft = () => {
     setLeftLipAngle,
   } = useDotPositions();
 
-  const [dotPosition, setDotPosition] = useState({ x: 40, y: 0 });
+  const [dotPosition, setDotPosition] = useState({ x: -40, y: 0 });
   const circleRef = useRef(null);
 
   const handleMouseDown = (event) => {

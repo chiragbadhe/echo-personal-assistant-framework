@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import { useStore } from "../store/useDotPositions";
-import useDotPositions from "../store/useDotPositions";
+import { useStore } from "../store/storedvalues";
+import useDotPositions from "../store/storedvalues";
 
 const LipRight = () => {
   const [dotPosition, setDotPosition] = useState({ x: 40, y: 0 });

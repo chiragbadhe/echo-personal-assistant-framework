@@ -1,10 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import storedValuesZustand from "../store/storedvalues";
 
 const Jaw = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef(null);
   const squareRef = useRef(null);
+
+  const { jawValue, setJawValue } = storedValuesZustand();
+
+  useEffect(() => {
+    setPosition((prev) => ({ ...prev, y: jawValue }));
+  }, [jawValue]);
 
   const handleMouseDown = (event) => {
     setIsDragging(true);
@@ -21,9 +28,7 @@ const Jaw = () => {
       const newY = event.clientY - containerRect.top - squareRect.height / 2;
       const maxY = containerRect.height - squareRect.height;
       const newYClamped = Math.min(Math.max(newY, 0), maxY);
-      setPosition((prev) => ({ ...prev, y: newYClamped }));
-
-      const angle = Math.floor((newYClamped / maxY) * 180);
+      setJawValue(newYClamped);
     }
   };
 

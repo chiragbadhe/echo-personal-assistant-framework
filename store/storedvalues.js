@@ -1,10 +1,11 @@
 import { create } from "zustand";
 
-const useDotPositions = create((set) => ({
+export const storedValuesZustand = create((set) => ({
   leftDotPosition: { x: 0, y: 0 },
   rightDotPosition: { x: 0, y: 0 },
   leftLipAngle: 0,
   rightLipAngle: 0,
+  jawValue: 10,
 
   setDotPositions: (
     { leftDotPosition, rightDotPosition } // use object destructuring to get both positions
@@ -15,6 +16,7 @@ const useDotPositions = create((set) => ({
     })),
   setLeftLipAngle: (angle) => set({ leftLipAngle: angle }),
   setRightLipAngle: (angle) => set({ rightLipAngle: angle }),
+  setJawValue: (jawValue) => set({ jawValue }),
 }));
 
-export default useDotPositions;
+export default storedValuesZustand;
