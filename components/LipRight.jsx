@@ -7,8 +7,12 @@ const LipRight = () => {
 
   const circleRef = useRef(null);
 
-  const { leftDotPosition, rightDotPosition, setDotPositions } =
-    useDotPositions();
+  const {
+    leftDotPosition,
+    rightDotPosition,
+    setDotPositions,
+    setRightLipAngle,
+  } = useDotPositions();
 
   const handleMouseDown = (event) => {
     event.preventDefault();
@@ -32,6 +36,8 @@ const LipRight = () => {
     setDotPositions({
       rightDotPosition: { x: pageX.toFixed(2), y: pageY.toFixed(2) },
     });
+
+    setRightLipAngle({ rightLipAngle: angleInDegrees });
 
     if (distanceFromCenter > maxRadius) {
       const angle = Math.atan2(newY, newX);

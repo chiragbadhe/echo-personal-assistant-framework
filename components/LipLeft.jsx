@@ -2,15 +2,15 @@ import React, { useState, useRef } from "react";
 import useDotPositions from "../store/useDotPositions";
 
 const LipLeft = () => {
-  const [dotPosition, setDotPosition] = useState({ x: 40, y: 0 });
-  const circleRef = useRef(null);
-
   const {
     leftDotPosition,
     rightDotPosition,
     setDotPositions,
     setLeftLipAngle,
   } = useDotPositions();
+
+  const [dotPosition, setDotPosition] = useState({ x: 40, y: 0 });
+  const circleRef = useRef(null);
 
   const handleMouseDown = (event) => {
     event.preventDefault();
@@ -34,6 +34,8 @@ const LipLeft = () => {
     setDotPositions({
       leftDotPosition: { x: pageX.toFixed(2), y: pageY.toFixed(2) },
     });
+
+    setLeftLipAngle({ leftLipAngle: angleInDegrees });
 
     if (distanceFromCenter > maxRadius) {
       const angle = Math.atan2(newY, newX);

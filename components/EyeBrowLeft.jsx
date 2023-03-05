@@ -31,6 +31,8 @@ const EyeBrowLeft = ({ centerX, startY, endY, initialAngle }) => {
     setIsDragging(false);
   };
 
+  
+
   useEffect(() => {
     if (isDragging) {
       document.addEventListener("mousemove", handleMouseMove);
@@ -46,7 +48,6 @@ const EyeBrowLeft = ({ centerX, startY, endY, initialAngle }) => {
     transform: `rotate(${angle}deg)`,
     transformOrigin: `${centerX}px ${startY}px`,
     cursor: "grab",
-
   };
 
   return (

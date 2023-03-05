@@ -1,29 +1,40 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef, useEffect, useState } from "react";
-import EyeLeft from "../components/EyeLeft";
-import EyeRight from "../components/EyeRight";
-import Face from "../components/Face";
-import EyeBrowRight from "../components/EyeBrowRight";
-import EyeBrowLeft from "../components/EyeBrowLeft";
-import Jaw from "../components/Jaw";
-import LipRight from "../components/LipRight";
-
-import EyeLids from "@/components/EyeLids";
-
 import useDotPositions from "../store/useDotPositions";
-import LipLeft from "../components/LipLeft";
+import {
+  EyeLeft,
+  EyeRight,
+  Face,
+  EyeBrowRight,
+  EyeBrowLeft,
+  Jaw,
+  LipRight,
+  EyeLids,
+  LipLeft,
+  Tilt,
+  Twist,
+  Slider,
+} from "../components";
 
 function Controls() {
-  const { leftDotPosition, rightDotPosition, leftLipAngle } = useDotPositions();
-  console.log(
-    rightDotPosition.x,
-    rightDotPosition.y,
-    leftDotPosition.x,
-    leftDotPosition.y
+  const { leftDotPosition, rightDotPosition, leftLipAngle, rightLipAngle, setLeftLip, setLeftLipAngle } =
+    useDotPositions();
+
+  console.log(leftLipAngle, rightLipAngle);
+
+  const distance = Math.sqrt(
+    (leftDotPosition.x - rightDotPosition.x) ** 2 +
+      (leftDotPosition.y - rightDotPosition.y) ** 2
   );
 
+  const handleChange = (event) => {
+    setLeftLipAngle({ leftLipAngle: event.target.value });
+  };
+
+
+
   return (
-    <mainn>
+    <main>
       <div className="container mx-auto flex items-center justify-center">
         <div className="w-1/2 h-screen">
           <p></p>
@@ -47,13 +58,6 @@ function Controls() {
                     />
                   </div>
                   <div className="flex absolute space-x-[120px] ml-[65px]">
-                    {/* <EyeLids>
-                    <EyeLeft />
-
-                    </EyeLids>
-                    <EyeLids>
-                      <EyeRight />
-                    </EyeLids> */}
                     <EyeLeft />
                     <EyeRight />
                   </div>
@@ -67,28 +71,13 @@ function Controls() {
                 <LipRight />
                 <LipLeft />
 
-                {/* <svg
-                  width="434"
-                  height="148"
-                  viewBox="0 0 434 148"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <line
-                    x1={rightDotPosition.x}
-                    y1={rightDotPosition.y}
-                    x2={leftDotPosition.x}
-                    y2={leftDotPosition.y}
-                    stroke="red"
-                    strokeWidth="10"
-                  />
-                </svg> */}
+               
               </div>
             </div>
           </div>
         </div>
       </div>
-    </mainn>
+    </main>
   );
 }
 

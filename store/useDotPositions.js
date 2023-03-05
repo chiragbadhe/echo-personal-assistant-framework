@@ -4,6 +4,7 @@ const useDotPositions = create((set) => ({
   leftDotPosition: { x: 0, y: 0 },
   rightDotPosition: { x: 0, y: 0 },
   leftLipAngle: 0,
+  rightLipAngle: 0,
 
   setDotPositions: (
     { leftDotPosition, rightDotPosition } // use object destructuring to get both positions
@@ -13,6 +14,7 @@ const useDotPositions = create((set) => ({
       rightDotPosition: { ...state.rightDotPosition, ...rightDotPosition }, // update only rightDotPosition
     })),
   setLeftLipAngle: (angle) => set({ leftLipAngle: angle }),
+  setRightLipAngle: (angle) => set({ rightLipAngle: angle }),
 }));
 
 export default useDotPositions;

@@ -13,6 +13,7 @@ const EyeBrowRight = ({ centerX, startY, endY, initialAngle }) => {
     setDragStartY(event.clientY);
   };
 
+
   const handleMouseMove = (event) => {
     if (isDragging) {
       const deltaY = event.clientY - dragStartY;
