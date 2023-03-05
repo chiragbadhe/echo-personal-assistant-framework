@@ -11,6 +11,10 @@ import Twist from "@/components/Twist";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  setTimeout(function () {
+    window.location.href = "/controls";
+  }, 50);
+
   return (
     <>
       <Head>
