@@ -5,7 +5,7 @@ export const storedValuesZustand = create((set) => ({
   rightDotPosition: { x: 0, y: 0 },
   leftLipAngle: 0,
   rightLipAngle: 0,
-  jawValue: 10,
+  jawValue: 0,
 
   setDotPositions: (
     { leftDotPosition, rightDotPosition } // use object destructuring to get both positions
