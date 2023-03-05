@@ -35,8 +35,8 @@ function Controls() {
 
   return (
     <main>
-      <div className="container mx-auto flex items-center justify-center">
-        <div className="w-1/2 h-screen">
+      <div className="container mx-auto h-screen flex items-center justify-center">
+        <div className="w-1/2 ">
           <p></p>
           <div className="flex items-center justify-center h-full">
             <div className="relative -mt-[50px]">
@@ -70,24 +70,35 @@ function Controls() {
               <div className="-mt-[123px] relative flex space-x-[178px] ml-[90px] z-30 ">
                 <LipRight />
                 <LipLeft />
-                <div className="absolute">
-                  <input
-                  id="jaw-slider"
-                    type="range"
-                    min="0"
-                    max="70"
-                    value={jawValue.jawValue}
-                    onChange={jawChange}
-                    style={{ width: "100%" }}
-                  />
-                  <p>Value: {jawValue.jawValue}</p>
-                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-1/3 h-full ">
+          <div className=" mt-[75px] mx-[30px] p-[20px] border border-gray-700/30 rounded-[15px]">
+            <div className="">
+              <h1 className="text-[20px] font-semibold">Controls</h1>
+            </div>
+            <div className=" grid gap-[10px] rounded-[5px] mt-[10px] w-auto ">
+              <div className="flex items-center justify-center space-x-[10px] border-b pb-[10px]">
+                <p className="text-[14px] w-[130px]">Jaw</p>
 
+                <input
+                  className="h-[5px] border-none "
+                  id="jaw-slider"
+                  type="range"
+                  min="0"
+                  max="70"
+                  value={jawValue}
+                  onChange={jawChange}
+                  style={{ width: "100%" }}
+                />
+                <span className="w-[100px] text-right text-[12px]">
+                  {jawValue} / 70
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
