@@ -11,6 +11,9 @@ import {
   LipRight,
   LipLeft,
 } from "../components";
+import SelectPort from "../components/SelectPort";
+import Servo from "../components/Servo";
+
 
 function Controls() {
   const { leftDotPosition, rightDotPosition, jawValue, setJawValue } =
@@ -99,6 +102,10 @@ function Controls() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="absolute bottom-[30px] right-[30px]">
+        <SelectPort />
         </div>
       </div>
     </main>
